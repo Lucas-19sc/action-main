@@ -1,22 +1,20 @@
+name: "Teste de workflow - action"
 
-name: "Teste de workflok - action"
 on:
-    issues:
-       types: [opened]
-    pull_request:
-       types: [opened]   
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
 
 jobs:
-    teste-action-job:
-      runs-on: ubuntu-lastest
-      name: "execução de actions"
-      steps:
-        - name: adicionando comentario
-          uses: Lucas-19sc@action-js@main   
-          with: 
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
-            issue-id: ${{ github.event.issue.number }}
-            comment: "teste de comentario" 
+  teste-action-job:
+    runs-on: ubuntu-latest
+    name: "Execução de actions"
 
-       
-      
+    steps:
+      - name: Adicionando comentário
+        uses: Lucas-19sc/action-js@main
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          issue-id: ${{ github.event.issue.number }}
+          comment: "teste de comentario"
