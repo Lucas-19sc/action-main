@@ -17,8 +17,11 @@ jobs:
 
     steps:
       - name: adicionando comentario
-        uses: Lucas-19sc/action-js@main
+        uses: Lucas-19sc/action-composite@main
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           issue_id: ${{ github.event.issue.number }}
-          comment: "teste de comentario"
+          comment: "teste de comentario composite"
+      - name: mostrar o id do comentarios composite
+        run: |
+          echo 'ID do comentário é: ${{ steps.comment_step.outputs.comment-id }}'
